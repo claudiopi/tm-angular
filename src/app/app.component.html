@@ -1,0 +1,163 @@
+<igx-navbar class="app-bar">
+  <igx-navbar-action>
+    <button igxButton="icon" igxRipple class="button">
+      <igx-icon>
+        dashboard
+      </igx-icon>
+    </button>
+  </igx-navbar-action>
+  <button igxButton="icon" igxRipple [igxToggleAction]="newTaskDialog" class="button">
+    <igx-icon>
+      add_circle
+    </igx-icon>
+  </button>
+  <button igxButton="icon" igxRipple class="button">
+    <igx-icon>
+      share
+    </igx-icon>
+  </button>
+  <button igxButton="icon" igxRipple class="button">
+    <igx-icon>
+      notifications
+    </igx-icon>
+  </button>
+  <button igxButton="icon" igxRipple class="button">
+    <igx-icon>
+      search
+    </igx-icon>
+  </button>
+  <button igxButton="icon" igxRipple class="button">
+    <igx-icon>
+      account_circle
+    </igx-icon>
+  </button>
+  <igx-navbar-title>
+    Task Management
+  </igx-navbar-title>
+</igx-navbar>
+<div class="row-layout group">
+  <div class="column-layout group_1">
+    <div class="row-layout group_2">
+      <div class="row-layout group_3">
+        <igx-avatar initials="FP" [roundShape]="true" class="avatar"></igx-avatar>
+        <h6 class="h6">
+          Fintech Project
+        </h6>
+        <button igxButton="icon" igxRipple [igxToggleAction]="dropdown">
+          <igx-icon>
+            keyboard_arrow_down
+          </igx-icon>
+        </button>
+        <igx-drop-down #dropdown class="dropdown">
+          <igx-drop-down-item [isHeader]="true">
+            Projects
+          </igx-drop-down-item>
+          <igx-drop-down-item>
+            Fintech Project
+          </igx-drop-down-item>
+          <igx-drop-down-item>
+            Project Name 1
+          </igx-drop-down-item>
+          <igx-drop-down-item>
+            Project Name 2
+          </igx-drop-down-item>
+          <igx-drop-down-item>
+            Project Name 3
+          </igx-drop-down-item>
+        </igx-drop-down>
+      </div>
+      <igx-buttongroup class="button-group">
+        <button igxButton="flat" igxRipple routerLink="/kanban-view">
+          <igx-icon>
+            dashboard
+          </igx-icon>
+          <p>Kanban</p>
+        </button>
+        <button igxButton="flat" igxRipple routerLink="/list-view">
+          <igx-icon>
+            format_list_bulleted
+          </igx-icon>
+          <p>List</p>
+        </button>
+      </igx-buttongroup>
+    </div>
+    <div class="view-container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="column-layout group_4">
+    <igx-icon class="icon">
+      group_add
+    </igx-icon>
+    <igx-avatar src="/assets/Avatar2.png" [roundShape]="true" class="avatar_1"></igx-avatar>
+    <igx-avatar src="/assets/Avatar6.png" [roundShape]="true" class="avatar_1"></igx-avatar>
+    <igx-avatar src="/assets/Avatar5.png" [roundShape]="true" class="avatar_1"></igx-avatar>
+    <igx-avatar src="/assets/Avatar3.png" [roundShape]="true" class="avatar_1"></igx-avatar>
+    <igx-avatar src="/assets/Avatar7.png" [roundShape]="true" class="avatar_1"></igx-avatar>
+    <igx-avatar src="/assets/Avatar8.png" [roundShape]="true" class="avatar_1"></igx-avatar>
+    <igx-avatar src="/assets/Avatar9.png" [roundShape]="true" class="avatar_1"></igx-avatar>
+    <igx-avatar src="/assets/Avatar10.png" [roundShape]="true" class="avatar_1"></igx-avatar>
+  </div>
+</div>
+<igx-dialog [closeOnOutsideSelect]="true" [closeOnEscape]="true" #newTaskDialog>
+  <igx-dialog-title>
+    <h5>
+      Add New Task
+    </h5>
+  </igx-dialog-title>
+  <ng-container>
+    <div class="column-layout group_5">
+      <igx-input-group type="box" class="input">
+        <input type="text" igxInput />
+        <label igxLabel>Task Title</label>
+      </igx-input-group>
+      <div class="row-layout group_6">
+        <igx-select type="box" placeholder="Pick a project" class="select">
+          <igx-prefix>
+            <igx-icon class="icon_1">
+              assignment
+            </igx-icon>
+          </igx-prefix>
+          <igx-select-item value="Option">
+            Fintech Project
+          </igx-select-item>
+          <igx-select-item value="Option">
+            DataViz Project
+          </igx-select-item>
+          <igx-select-item value="Option">
+            Onboarding Project
+          </igx-select-item>
+          <igx-select-item value="Option">
+            AppBuilder Project
+          </igx-select-item>
+          <label igxLabel>Project</label>
+        </igx-select>
+        <igx-select type="box" placeholder="Set Status" class="select_1">
+          <igx-prefix>
+            <igx-icon class="icon_1">
+              schedule
+            </igx-icon>
+          </igx-prefix>
+          <igx-select-item value="Option">
+            To Do
+          </igx-select-item>
+          <igx-select-item value="Option">
+            In Development
+          </igx-select-item>
+          <igx-select-item value="Option">
+            Validation
+          </igx-select-item>
+          <igx-select-item value="Option">
+            Done
+          </igx-select-item>
+          <label igxLabel>Status</label>
+        </igx-select>
+      </div>
+    </div>
+  </ng-container>
+  <igx-dialog-actions>
+    <button igxButton="raised" igxRipple [igxToggleAction]="newTaskDialog" class="button_1">
+      Create Task
+    </button>
+  </igx-dialog-actions>
+</igx-dialog>
